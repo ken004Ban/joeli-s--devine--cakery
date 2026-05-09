@@ -6,62 +6,86 @@ import { Link } from 'react-router-dom';
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', 'Wedding Cakes', 'Birthday Cakes', 'Custom Orders', 'Cupcakes & Treats'];
+  const categories = ['All', 'Wedding Cakes', 'Birthday Cakes', 'Custom Orders'];
 
   const cakeItems = [
     {
-      name: "Royal Ivory Tier",
+      name: "Golden Bloom Tier",
       category: "Wedding Cakes",
-      img: "https://images.unsplash.com/photo-1525262013420-5886642452d3?auto=format&fit=crop&q=80&w=600",
-      desc: "A classic 4-tier ivory masterpiece with hand-piped lace and fresh peonies."
+      img: "/images/cakes/golden-bloom-tier.png",
+      desc: "Sophisticated double-tiered cake with luxurious gold leaf detailing and sugar roses."
     },
     {
-      name: "Midnight Chocolate Dream",
+      name: "Butterfly Bloom Cake",
+      category: "Wedding Cakes",
+      img: "/images/cakes/butterfly-bloom-cake.png",
+      desc: "A white cake adorned with vibrant buttercream flowers and delicate edible butterflies."
+    },
+    {
+      name: "Princess Pink Celebration",
       category: "Birthday Cakes",
-      img: "https://images.unsplash.com/photo-1578985545062-69928a499566?auto=format&fit=crop&q=80&w=600",
-      desc: "Decadent dark chocolate ganache with gold leaf accents and fresh raspberries."
+      img: "/images/cakes/princess-pink-celebration.png",
+      desc: "A whimsical pink buttercream cake fit for a princess, celebrating her 20th birthday."
     },
     {
-      name: "Pastel Garden Party",
-      category: "Custom Orders",
-      img: "https://images.unsplash.com/photo-1535141123146-27d95ec7229a?auto=format&fit=crop&q=80&w=600",
-      desc: "A whimsical blend of vanilla and lemon, adorned with edible wildflowers."
-    },
-    {
-      name: "Velvet Rose Symphony",
-      category: "Wedding Cakes",
-      img: "https://images.unsplash.com/photo-1513116235674-3B0707672771?auto=format&fit=crop&q=80&w=600",
-      desc: "Red velvet layers with cream cheese frosting and cascading sugar roses."
-    },
-    {
-      name: "Celebration Sprinkles",
+      name: "Paw Patrol Adventure Cake",
       category: "Birthday Cakes",
-      img: "https://images.unsplash.com/photo-1562339566-65e7f80750f7?auto=format&fit=crop&q=80&w=600",
-      desc: "Funfettiy bliss! A vanilla bean cake packed with colorful sprinkles."
+      img: "/images/cakes/paw-patrol-adventure-cake.png",
+      desc: "Celebrate with this playful vanilla cake featuring favorite Paw Patrol characters."
     },
     {
-      name: "Golden Honeycomb",
+      name: "Golden Grandpa Celebration Cake",
+      category: "Birthday Cakes",
+      img: "/images/cakes/golden-grandpa-celebration-cake.png",
+      desc: "A warm chocolate-drip cake with copper and ivory swirls, honoring a beloved grandpa's 50th birthday."
+    },
+    {
+      name: "Trio Harmony Cake",
+      category: "Birthday Cakes",
+      img: "/images/cakes/trio-harmony-cake.png",
+      desc: "A pastel ombré cake celebrating Taonga, Tapiwa, and Alinase with golden butterflies and name banners."
+    },
+    {
+      name: "Batman Cake Knight Tribute",
+      category: "Birthday Cakes",
+      img: "/images/cakes/batman-cake-knight-tribute.png",
+      desc: "A heroic vanilla cake topped with Batman decorations for the ultimate superhero fan."
+    },
+    {
+      name: "Blushing Bow Half-Birthday Cake",
+      category: "Birthday Cakes",
+      img: "/images/cakes/blushing-bow-half-birthday-cake.png",
+      desc: "A playful pink cake with bows and baby-themed toppers, celebrating the adorable halfway-to-one milestone."
+    },
+    {
+      name: "Arsenal Passion Cake",
       category: "Custom Orders",
-      img: "https://images.unsplash.com/photo-1464349095431-6560c1f77565?auto=format&fit=crop&q=80&w=600",
-      desc: "Honey-infused sponge cake with a salted honey buttercream frosting."
+      img: "/images/cakes/arsenal-passion-cake.png",
+      desc: "A bold red cake celebrating Arsenal fandom, dripping with white chocolate and adorned with soccer-themed toppers."
     },
     {
-      name: "Petite Patisserie Box",
-      category: "Cupcakes & Treats",
-      img: "https://images.unsplash.com/photo-1550617931-8732b72a3170?auto=format&fit=crop&q=80&w=600",
-      desc: "A curated set of our finest miniature cakes and macarons."
+      name: "Manchester United Glory Cake",
+      category: "Custom Orders",
+      img: "/images/cakes/manchester-united-glory-cake.png",
+      desc: "Show your Red Devils pride with this vanilla buttercream cake topped with the iconic Manchester United emblem."
     },
     {
-      name: "Blush Berry Delight",
-      category: "Cupcakes & Treats",
-      img: "https://images.unsplash.com/photo-1582293523413-63f92f4a7870?auto=format&fit=crop&q=80&w=600",
-      desc: "Strawberry shortcake cupcakes with a fresh berry center."
+      name: "Golden Virtue Cake",
+      category: "Custom Orders",
+      img: "/images/cakes/golden-virtue-cake.png",
+      desc: "Gracefully adorned in gold, celebrating a Super Woman's spirit and elegance."
     },
     {
-      name: "Marble Elegance",
-      category: "Wedding Cakes",
-      img: "https://images.unsplash.com/photo-1621303017956-3776f8C5658a?auto=format&fit=crop&q=80&w=600",
-      desc: "Modern marble effect frosting with metallic gold splatters."
+      name: "Blue Frost Harmony Cake",
+      category: "Custom Orders",
+      img: "/images/cakes/blue-frost-harmony-cake.png",
+      desc: "A serene square cake with white and blue buttercream ombré frosting."
+    },
+    {
+      name: "Barcelona Spirit Cake",
+      category: "Custom Orders",
+      img: "/images/cakes/barcelona-spirit-cake.png",
+      desc: "A vibrant red-and-blue cake celebrating FC Barcelona passion with trophy and player toppers."
     },
   ];
 

@@ -98,7 +98,7 @@ const Home = () => {
             >
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-gold rounded-2xl z-0"></div>
               <img
-                src="https://images.unsplash.com/photo-1556910111-a127a7a67692?auto=format&fit=crop&q=80&w=800"
+                src="/images/cakes/internal.png"
                 alt="Bakery Interior"
                 className="relative z-10 rounded-2xl shadow-xl"
               />
@@ -171,19 +171,19 @@ const Home = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
-              title: "The DEVINE Wedding Tier",
-              img: "https://images.unsplash.com/photo-1525262013420-5886642452d3?auto=format&fit=crop&q=80&w=600",
-              desc: "Elegant, timeless, and breathtaking. The perfect center-piece for your special day."
+              title: "Golden Bloom Tier",
+              img: "/images/cakes/golden-bloom-tier.png",
+              desc: "Sophisticated double-tiered cake with luxurious gold leaf detailing and sugar roses."
             },
             {
-              title: "Birthday Dream Cake",
-              img: "https://images.unsplash.com/photo-1535141123146-27d95ec7229a?auto=format&fit=crop&q=80&w=600",
-              desc: "Whimsical, colorful, and filled with joy. Designed to make every birthday wish come true."
+              title: "Princess Pink Celebration",
+              img: "/images/cakes/princess-pink-celebration.png",
+              desc: "A whimsical pink buttercream cake fit for a princess, celebrating her 20th birthday."
             },
             {
-              title: "Custom Creations",
-              img: "https://images.unsplash.com/photo-1464349095431-6560c1f77565?auto=format&fit=crop&q=80&w=600",
-              desc: "Your imagination, baked into reality. From themed parties to corporate elegance."
+              title: "Arsenal Passion Cake",
+              img: "/images/cakes/arsenal-passion-cake.png",
+              desc: "A bold red cake celebrating Arsenal fandom, dripping with white chocolate and adorned with soccer-themed toppers."
             }
           ].map((item, i) => (
             <motion.div
