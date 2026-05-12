@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bed, Users, Bath, Wifi, Coffee } from 'lucide-react';
+import { Bed, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Rooms = () => {

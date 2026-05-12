@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, ShoppingBag, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -95,6 +96,13 @@ const Gallery = () => {
 
   return (
     <div className="pt-24 pb-24 px-4">
+      <SEO
+        title="Cake Gallery"
+        description="Browse our portfolio of custom celebration cakes in Zambia. Wedding cakes, birthday cakes, and bespoke masterpieces crafted with premium ingredients."
+        path="/gallery"
+        image="https://joelisdevine.com/images/cakes/golden-bloom-tier.png"
+      />
+
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.h1
@@ -110,11 +118,12 @@ const Gallery = () => {
           </p>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-4 mb-16" role="tablist" aria-label="Filter cakes by category">
           {categories.map((category) => (
             <button
               key={category}
+              role="tab"
+              aria-selected={activeCategory === category}
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-2 rounded-full font-lato text-sm transition-all duration-300 border-2 ${
                 activeCategory === category
@@ -127,7 +136,6 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Gallery Grid */}
         <motion.div
           layout
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
@@ -146,7 +154,7 @@ const Gallery = () => {
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={cake.img}
-                    alt={cake.name}
+                    alt={`${cake.name} — ${cake.category} by JOELi's DEVINE CAKERY`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-chocolate/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-warm-white">

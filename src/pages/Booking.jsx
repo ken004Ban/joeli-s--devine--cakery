@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, User, Mail, Phone, Users, Bed, CheckCircle, Send, MessageCircle } from 'lucide-react';
 

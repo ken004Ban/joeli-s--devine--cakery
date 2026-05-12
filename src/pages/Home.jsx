@@ -1,10 +1,18 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Star, Cake, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+
+const sparkleData = Array.from({ length: 15 }, (_, i) => ({
+  key: i,
+  x: Math.random() * 100 + '%',
+  y: Math.random() * 100 + '%',
+  duration: 3 + Math.random() * 2,
+  delay: Math.random() * 5,
+  size: Math.random() * 20 + 10,
+}));
 
 const Home = () => {
-  // 💡 LEARN: Framer Motion variants allow us to define reusable animation states.
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -20,35 +28,62 @@ const Home = () => {
     },
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "JOELi's DEVINE CAKERY",
+    "description": "Zambia's premier patisserie crafting custom celebration cakes with premium ingredients.",
+    "url": "https://joelisdevine.com",
+    "telephone": "+260976365536",
+    "email": "hello@joelisdevine.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ZM"
+    },
+    "openingHours": "Mo-Su 08:00-18:00",
+    "servesCuisine": "Bakery",
+    "priceRange": "$$",
+    "image": "https://joelisdevine.com/images/cakes/golden-bloom-tier.png",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "12"
+    }
+  };
+
   return (
     <div className="overflow-x-hidden">
-      {/* HERO SECTION */}
+      <SEO
+        title="Home"
+        description="Zambia's premier patisserie crafting custom celebration cakes with premium ingredients. Wedding cakes, birthday cakes & custom masterpieces — baked fresh daily."
+        path="/"
+      />
+
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+
       <section className="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
-        {/* Texture Overlay */}
         <div className="absolute inset-0 pointer-events-none opacity-30 bg-[url('https://www.transparenttextures.com/patterns/linen.png')] z-10"></div>
 
-        {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
-          {[...Array(15)].map((_, i) => (
+          {sparkleData.map((s) => (
             <motion.div
-              key={i}
+              key={s.key}
               className="absolute text-gold/30"
-              initial={{
-                x: Math.random() * 100 + '%',
-                y: Math.random() * 100 + '%',
-                opacity: 0
-              }}
+              style={{ left: s.x, top: s.y }}
+              initial={{ opacity: 0 }}
               animate={{
-                y: [null, '-20px', '0px'],
+                y: ['0px', '-20px', '0px'],
                 opacity: [0, 0.5, 0],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: s.duration,
                 repeat: Infinity,
-                delay: Math.random() * 5
+                delay: s.delay,
               }}
             >
-              <Sparkles size={Math.random() * 20 + 10} />
+              <Sparkles size={s.size} />
             </motion.div>
           ))}
         </div>
@@ -85,7 +120,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
       <section id="about" className="py-24 bg-warm-white px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -99,7 +133,7 @@ const Home = () => {
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-gold rounded-2xl z-0"></div>
               <img
                 src="/images/cakes/internal.png"
-                alt="Bakery Interior"
+                alt="JOELi's DEVINE CAKERY bakery interior showing cake displays and preparation area"
                 className="relative z-10 rounded-2xl shadow-xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-blush text-white p-6 rounded-full font-dancing text-2xl shadow-lg z-20">
@@ -130,7 +164,6 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Why Choose Us */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
             {[
               { icon: <Cake className="text-gold" />, title: "Baked Fresh Daily", desc: "We never use preservatives. Your cake is baked hours before it reaches your table." },
@@ -156,7 +189,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SIGNATURE OFFERINGS */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-chocolate mb-4">
@@ -197,7 +229,7 @@ const Home = () => {
               <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src={item.img}
-                  alt={item.title}
+                  alt={`${item.title} — custom cake by JOELi's DEVINE CAKERY`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
@@ -213,7 +245,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
       <section id="testimonials" className="py-24 bg-warm-white px-4 overflow-hidden">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-chocolate mb-4">
@@ -264,7 +295,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* FINAL CTA */}
       <section className="py-24 px-4 text-center bg-gold text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="grid grid-cols-10 gap-4">
