@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sand: #F5F0E8;
+  --color-forest: #2D4A3E;
+  --color-terracotta: #C1694F;
+  --color-gold: #C9A84C;
+  --color-warm-white: #FFF8F0;
+  --color-charcoal: #2C2C2C;
+  --color-foreground: #2C2C2C;
+  --color-muted: #F0EBE3;
+  --color-muted-foreground: #6B6258;
+  --font-lato: "Lato", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-dancing: "Dancing Script", cursive;
+}
+
+@layer base {
+  body {
+    @apply bg-sand text-charcoal font-lato;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-terracotta text-white px-6 py-3 rounded-full font-semibold hover:bg-forest transition-all duration-300 shadow-md hover:shadow-lg inline-block cursor-pointer;
+  }
+
+  .glass-nav {
+    @apply bg-warm-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-forest/10;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #C1694F;
+  border-radius: 10px;
+}
