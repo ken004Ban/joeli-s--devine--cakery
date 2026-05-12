@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Rooms from './pages/Rooms';
-import Booking from './pages/Booking';
+import Gallery from './pages/Gallery';
+import Order from './pages/Order';
 import { FloatingWhatsApp, LoadingScreen } from './components/Extras';
 
 const pageVariants = {
@@ -28,8 +28,8 @@ const AnimatedRoutes = () => {
       >
         <Routes location={location}>
           <Route path="/" element={<Home />} />
-          <Route path="/rooms" element={<Rooms />} />
-          <Route path="/booking" element={<Booking />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

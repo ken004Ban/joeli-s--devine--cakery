@@ -7,7 +7,7 @@ const FloatingWhatsApp = () => {
 
   return (
     <motion.a
-      href="https://wa.me/+260000000000"
+      href="https://wa.me/+260976365536"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
@@ -29,9 +29,9 @@ const FloatingWhatsApp = () => {
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 10 }}
-              className="absolute right-full mr-3 px-3 py-1 bg-white text-charcoal text-xs font-bold rounded-lg shadow-md whitespace-nowrap"
+              className="absolute right-full mr-3 px-3 py-1 bg-white text-chocolate text-xs font-bold rounded-lg shadow-md whitespace-nowrap"
             >
-              Book via WhatsApp!
+              Chat with JOELi! 🍰
             </motion.span>
           )}
         </AnimatePresence>
@@ -51,7 +51,7 @@ const LoadingScreen = ({ onComplete }) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[100] bg-sand flex items-center justify-center"
+      className="fixed inset-0 z-[100] bg-cream flex items-center justify-center"
     >
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
@@ -59,14 +59,14 @@ const LoadingScreen = ({ onComplete }) => {
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <div className="text-4xl md:text-6xl font-playfair font-bold text-forest mb-2">
-          [Lodge] <span className="font-dancing text-terracotta italic">Serene</span>
+        <div className="text-4xl md:text-6xl font-playfair font-bold text-chocolate mb-2">
+          JOELi's <span className="font-dancing text-blush italic">Devine</span>
         </div>
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: '100%' }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="h-1 bg-terracotta rounded-full"
+          className="h-1 bg-gold rounded-full"
         ></motion.div>
       </motion.div>
     </motion.div>

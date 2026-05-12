@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { MessageCircle, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const containerVariants = {
@@ -24,7 +24,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-forest text-warm-white pt-16 pb-8 px-4">
+    <footer className="bg-chocolate text-warm-white pt-16 pb-8 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           variants={containerVariants}
@@ -38,11 +38,11 @@ const Footer = () => {
               whileHover={{ scale: 1.02 }}
               className="text-3xl font-playfair font-bold text-warm-white"
             >
-              [Lodge] <span className="font-dancing text-4xl text-terracotta italic">Serene</span> Stays
+              JOELi's <span className="font-dancing text-4xl text-blush italic">Devine</span> Cakery
             </motion.div>
             <p className="font-lato text-sm text-warm-white/80 leading-relaxed">
-              Escape to tranquility. Nestled in nature, we offer a peaceful retreat
-              with warm hospitality, comfortable accommodations, and unforgettable experiences.
+              Crafting sweet memories one slice at a time. Our cakes are made with organic ingredients,
+              a pinch of magic, and a whole lot of love.
             </p>
             <div className="flex space-x-4 pt-4">
               {[
@@ -53,7 +53,7 @@ const Footer = () => {
                 <motion.a
                   key={i}
                   href="#"
-                  whileHover={{ scale: 1.2, backgroundColor: 'rgba(193, 105, 79, 1)', color: '#FFF8F0' }}
+                  whileHover={{ scale: 1.2, backgroundColor: 'rgba(232, 160, 191, 1)', color: '#3E2723' }}
                   whileTap={{ scale: 0.9 }}
                   className="p-2 bg-white/10 rounded-full text-warm-white"
                 >
@@ -74,15 +74,15 @@ const Footer = () => {
             >
               {[
                 { to: '/', label: 'Home' },
-                { to: '/rooms', label: 'Our Rooms' },
-                { to: '/booking', label: 'Book Now' },
-                { to: '/#about', label: 'About Us' },
-                { to: '/#testimonials', label: 'Guest Reviews' },
+                { to: '/gallery', label: 'Cake Gallery' },
+                { to: '/order', label: 'Order Now' },
+                { to: '/#about', label: 'Our Story' },
+                { to: '/#testimonials', label: 'Reviews' },
               ].map((link) => (
                 <motion.li key={link.label} variants={linkVariants}>
                   <Link
                     to={link.to}
-                    className="inline-block hover:text-terracotta"
+                    className="inline-block hover:text-blush"
                   >
                     {link.label}
                   </Link>
@@ -101,10 +101,9 @@ const Footer = () => {
               className="space-y-3 font-lato text-sm text-warm-white/70"
             >
               {[
-                { icon: <MapPin size={16} className="text-terracotta" />, text: 'Lusaka, Zambia' },
-                { icon: <Phone size={16} className="text-terracotta" />, text: '+260 000 000 000' },
-                { icon: <Mail size={16} className="text-terracotta" />, text: 'hello@lodgename.com' },
-                { icon: <MessageCircle size={16} className="text-terracotta" />, text: 'WhatsApp: +260 000 000 000' },
+                { icon: <Phone size={16} className="text-blush" />, text: '+260 976365536' },
+                { icon: <Mail size={16} className="text-blush" />, text: 'hello@joelisdevine.com' },
+                { icon: <MessageCircle size={16} className="text-blush" />, text: 'WhatsApp: +260 976365536' },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -131,9 +130,9 @@ const Footer = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-dancing text-2xl text-terracotta italic mb-2"
+            className="font-dancing text-2xl text-blush italic mb-2"
           >
-            "Your home away from home."
+            "Every celebration deserves something DEVINE."
           </motion.p>
           <p className="font-lato text-xs text-warm-white/40">
             &copy; {currentYear} Nyota Tech Limited. All rights reserved.

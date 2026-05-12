@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -18,8 +18,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Rooms', path: '/rooms' },
-    { name: 'Book Now', path: '/booking' },
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'Order Now', path: '/order' },
     { name: 'About', path: '/#about' },
   ];
 
@@ -36,9 +36,9 @@ const Navbar = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="text-2xl font-playfair font-bold text-forest"
+              className="text-2xl font-playfair font-bold text-chocolate"
             >
-              [Lodge] <span className="font-dancing text-3xl text-terracotta italic">Serene</span> Stays
+              JOELi's <span className="font-dancing text-3xl text-blush italic">Devine</span> Cakery
             </motion.div>
           </Link>
 
@@ -46,9 +46,9 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <Link key={link.name} to={link.path} className="relative">
                 <motion.span
-                  whileHover={{ color: '#C1694F' }}
+                  whileHover={{ color: '#C9A84C' }}
                   className={`font-lato text-sm uppercase tracking-wider cursor-pointer ${
-                    location.pathname === link.path ? 'text-terracotta font-bold' : 'text-charcoal'
+                    location.pathname === link.path ? 'text-gold font-bold' : 'text-chocolate'
                   }`}
                 >
                   {link.name}
@@ -56,14 +56,14 @@ const Navbar = () => {
                 {location.pathname === link.path && (
                   <motion.div
                     layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-terracotta rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gold rounded-full"
                   />
                 )}
               </Link>
             ))}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/booking" className="btn-primary py-2 px-5 text-sm inline-block">
-                Book Your Stay
+              <Link to="/order" className="btn-primary py-2 px-5 text-sm inline-block">
+                Order Now
               </Link>
             </motion.div>
           </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
             <motion.button
               whileTap={{ scale: 0.85 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-charcoal p-2"
+              className="text-chocolate p-2"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -87,7 +87,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-sand border-t border-forest/10 overflow-hidden"
+            className="md:hidden bg-cream border-t border-gold/20 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link, i) => (
@@ -100,7 +100,7 @@ const Navbar = () => {
                   <Link
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className="block px-3 py-4 text-base font-medium text-charcoal hover:text-terracotta hover:bg-terracotta/10 rounded-md"
+                    className="block px-3 py-4 text-base font-medium text-chocolate hover:text-gold hover:bg-gold/10 rounded-md"
                   >
                     {link.name}
                   </Link>
@@ -113,11 +113,11 @@ const Navbar = () => {
                 className="pt-4"
               >
                 <Link
-                  to="/booking"
+                  to="/order"
                   onClick={() => setIsOpen(false)}
                   className="btn-primary w-full text-center block"
                 >
-                  Book Your Stay
+                  Order Now
                 </Link>
               </motion.div>
             </div>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, TreePine, HomeIcon, Coffee, Wifi, Utensils } from 'lucide-react';
+import { Heart, Star, Cake, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  // 💡 LEARN: Framer Motion variants allow us to define reusable animation states.
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -23,13 +24,33 @@ const Home = () => {
     <div className="overflow-x-hidden">
       {/* HERO SECTION */}
       <section className="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
+        {/* Texture Overlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-30 bg-[url('https://www.transparenttextures.com/patterns/linen.png')] z-10"></div>
+
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-forest/60 via-forest/30 to-forest/80 z-10"></div>
-          <img
-            src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1600&q=80"
-            alt="Lodge surrounded by nature"
-            className="w-full h-full object-cover"
-          />
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-gold/30"
+              initial={{
+                x: Math.random() * 100 + '%',
+                y: Math.random() * 100 + '%',
+                opacity: 0
+              }}
+              animate={{
+                y: [null, '-20px', '0px'],
+                opacity: [0, 0.5, 0],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 5
+              }}
+            >
+              <Sparkles size={Math.random() * 20 + 10} />
+            </motion.div>
+          ))}
         </div>
 
         <div className="relative z-20 max-w-4xl mx-auto">
@@ -41,26 +62,23 @@ const Home = () => {
           >
             <motion.h1
               variants={fadeIn}
-              className="text-5xl md:text-8xl font-playfair font-bold text-warm-white leading-tight"
+              className="text-5xl md:text-8xl font-playfair font-bold text-chocolate leading-tight"
             >
-              Welcome to <span className="font-dancing text-terracotta italic">Serenity.</span> <br />
-              <span className="text-4xl md:text-6xl">Where Nature Meets Comfort.</span>
+              Baked with <span className="font-dancing text-blush italic">Love.</span> <br />
+              Crafted with <span className="font-dancing text-gold italic">Devotion.</span>
             </motion.h1>
 
             <motion.p
               variants={fadeIn}
-              className="text-lg md:text-2xl font-lato text-warm-white/80 max-w-2xl mx-auto"
+              className="text-lg md:text-2xl font-lato text-chocolate/70 max-w-2xl mx-auto"
             >
-              Escape the ordinary. Experience warm hospitality, breathtaking views,
-              and the perfect retreat you've been searching for.
+              Welcome to JOELi's DEVINE CAKERY, where every slice tells a story
+              and every celebration becomes a masterpiece.
             </motion.p>
 
-            <motion.div variants={fadeIn} className="pt-8 flex gap-4 justify-center flex-wrap">
-              <Link to="/rooms" className="btn-primary text-lg px-10 py-4 bg-terracotta hover:bg-warm-white hover:text-forest">
-                Explore Rooms
-              </Link>
-              <Link to="/booking" className="bg-white/20 backdrop-blur-sm text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-forest transition-all duration-300 border border-white/30">
-                Book Your Stay
+            <motion.div variants={fadeIn} className="pt-8">
+              <Link to="/order" className="btn-primary text-lg px-10 py-4">
+                Order Your Dream Cake
               </Link>
             </motion.div>
           </motion.div>
@@ -78,14 +96,14 @@ const Home = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-terracotta rounded-2xl z-0"></div>
+              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-gold rounded-2xl z-0"></div>
               <img
-                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
-                alt="Lodge exterior"
-                className="relative z-10 rounded-2xl shadow-xl w-full h-[400px] object-cover"
+                src="/images/cakes/internal.png"
+                alt="Bakery Interior"
+                className="relative z-10 rounded-2xl shadow-xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-forest text-white p-6 rounded-full font-dancing text-2xl shadow-lg z-20">
-                Est. 2020
+              <div className="absolute -bottom-6 -right-6 bg-blush text-white p-6 rounded-full font-dancing text-2xl shadow-lg z-20">
+                Since 2015
               </div>
             </motion.div>
 
@@ -96,21 +114,18 @@ const Home = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-forest">
-                Your Home Away from Home
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-chocolate">
+                The Heart Behind the Oven
               </h2>
-              <p className="text-lg font-lato text-charcoal/80 leading-relaxed">
-                Nestled in the heart of breathtaking landscapes, [Lodge Name] was born
-                from a passion for hospitality and a love for nature. Every corner of
-                our lodge tells a story of comfort, warmth, and the beauty of the
-                great outdoors.
+              <p className="text-lg font-lato text-chocolate/80 leading-relaxed">
+                What started as a small kitchen experiment with a passion for sweets
+                has blossomed into JOELi's DEVINE CAKERY. For JOELi, baking isn't just
+                about flour and sugar; it's about the laughter at a wedding, the
+                surprise of a first birthday, and the quiet joy of a shared dessert.
               </p>
-              <p className="text-lg font-lato text-charcoal/80 leading-relaxed">
-                From the moment you arrive, you'll be embraced by the tranquility of
-                our surroundings and the genuine warmth of our staff.
-              </p>
-              <div className="p-6 bg-sand rounded-2xl border-l-4 border-terracotta italic font-dancing text-2xl text-charcoal shadow-sm">
-                "Hospitality is not just a service — it's a feeling of belonging."
+              <div className="p-6 bg-cream rounded-2xl border-l-4 border-gold italic font-dancing text-2xl text-chocolate shadow-sm">
+                "Every cake I make carries a piece of my heart.
+                That's the DEVINE difference." — JOELi
               </div>
             </motion.div>
           </div>
@@ -118,9 +133,9 @@ const Home = () => {
           {/* Why Choose Us */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
             {[
-              { icon: <HomeIcon className="text-terracotta" size={28} />, title: "Comfortable Stays", desc: "Well-appointed rooms with premium bedding, modern amenities, and breathtaking views to make your stay unforgettable." },
-              { icon: <Utensils className="text-terracotta" size={28} />, title: "Farm-to-Table Dining", desc: "Savor delicious meals prepared with fresh, locally sourced ingredients. Our menu celebrates authentic local flavors." },
-              { icon: <TreePine className="text-terracotta" size={28} />, title: "Nature Immersion", desc: "Guided nature walks, bird watching, stargazing, and outdoor activities that connect you with the beauty around you." },
+              { icon: <Cake className="text-gold" />, title: "Baked Fresh Daily", desc: "We never use preservatives. Your cake is baked hours before it reaches your table." },
+              { icon: <Heart className="text-blush" />, title: "Custom Creations", desc: "Your vision, our expertise. We collaborate with you to design a cake that reflects your dream." },
+              { icon: <Star className="text-gold" />, title: "Made with Love", desc: "From the finest Madagascar vanilla to Belgian chocolate, we use only premium ingredients." },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -128,82 +143,47 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
                 viewport={{ once: true }}
-                className="p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all border border-terracotta/10 text-center group"
+                className="p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all border border-gold/10 text-center group"
               >
-                <div className="w-16 h-16 bg-sand rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-playfair font-bold mb-3 text-forest">{item.title}</h3>
-                <p className="font-lato text-charcoal/70 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-playfair font-bold mb-3 text-chocolate">{item.title}</h3>
+                <p className="font-lato text-chocolate/70 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AMENITIES */}
-      <section className="py-24 px-4 bg-sand">
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-forest mb-4">
-            Premium Amenities
-          </h2>
-          <p className="font-lato text-charcoal/70 max-w-2xl mx-auto">
-            Every detail thoughtfully curated for your comfort and enjoyment.
-          </p>
-        </div>
-
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { icon: <Wifi size={32} />, label: "Free Wi-Fi" },
-            { icon: <Coffee size={32} />, label: "Morning Coffee" },
-            { icon: <Utensils size={32} />, label: "Restaurant" },
-            { icon: <TreePine size={32} />, label: "Nature Trails" },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center gap-4 p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all border border-forest/10"
-            >
-              <div className="text-terracotta">{item.icon}</div>
-              <span className="font-playfair font-semibold text-forest text-lg">{item.label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* FEATURED ROOMS */}
+      {/* SIGNATURE OFFERINGS */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-forest mb-4">
-            Our Featured Rooms
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-chocolate mb-4">
+            Our Signature Masterpieces
           </h2>
-          <p className="font-lato text-charcoal/70 max-w-2xl mx-auto">
-            Discover our most loved accommodations. Each room is a sanctuary of comfort and style.
+          <p className="font-lato text-chocolate/70 max-w-2xl mx-auto">
+            Discover the most loved creations from our oven. Each design is
+            meticulously crafted to be as beautiful as it is delicious.
           </p>
         </div>
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
-              title: "The Safari Suite",
-              img: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80",
-              desc: "Spacious suite with king bed, en-suite bathroom, private balcony overlooking the wilderness.",
-              price: "ZMW 1,500 / night"
+              title: "Golden Bloom Tier",
+              img: "/images/cakes/golden-bloom-tier.png",
+              desc: "Sophisticated double-tiered cake with luxurious gold leaf detailing and sugar roses."
             },
             {
-              title: "Garden Cottage",
-              img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
-              desc: "Charming cottage surrounded by lush gardens, featuring a cozy fireplace and outdoor seating.",
-              price: "ZMW 900 / night"
+              title: "Princess Pink Celebration",
+              img: "/images/cakes/princess-pink-celebration.png",
+              desc: "A whimsical pink buttercream cake fit for a princess, celebrating her 20th birthday."
             },
             {
-              title: "Family Lodge",
-              img: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&q=80",
-              desc: "Perfect for families, with two bedrooms, a full kitchen, and a large veranda for evening gatherings.",
-              price: "ZMW 2,000 / night"
+              title: "Arsenal Passion Cake",
+              img: "/images/cakes/arsenal-passion-cake.png",
+              desc: "A bold red cake celebrating Arsenal fandom, dripping with white chocolate and adorned with soccer-themed toppers."
             }
           ].map((item, i) => (
             <motion.div
@@ -221,12 +201,11 @@ const Home = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/40 to-transparent opacity-90 flex flex-col justify-end p-8 text-warm-white">
-                <div className="text-xs font-bold text-terracotta uppercase tracking-widest mb-2">{item.price}</div>
+              <div className="absolute inset-0 bg-gradient-to-t from-chocolate via-chocolate/40 to-transparent opacity-90 flex flex-col justify-end p-8 text-warm-white">
                 <h3 className="text-2xl font-playfair font-bold mb-2">{item.title}</h3>
                 <p className="font-lato text-sm text-warm-white/80 mb-4">{item.desc}</p>
-                <Link to="/rooms" className="text-terracotta font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-                  View Details <span aria-hidden="true">&rarr;</span>
+                <Link to="/gallery" className="text-gold font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                  View Details <Sparkles size={16} />
                 </Link>
               </div>
             </motion.div>
@@ -237,10 +216,10 @@ const Home = () => {
       {/* TESTIMONIALS */}
       <section id="testimonials" className="py-24 bg-warm-white px-4 overflow-hidden">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-forest mb-4">
-            What Our Guests Say
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-chocolate mb-4">
+            Sweet Words from Happy Hearts
           </h2>
-          <p className="font-lato text-charcoal/70">
+          <p className="font-lato text-chocolate/70">
             The greatest reward is seeing the smile on your face when you first taste our cakes.
           </p>
         </div>
@@ -249,18 +228,18 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "Grace Banda",
-                text: "The most peaceful getaway I've ever had. The staff treated us like family and the views were absolutely breathtaking.",
+                name: "Samson Banda",
+                text: "The wedding cake JOELi made was not only a work of art but tasted like a dream. Our guests are still talking about it months later!",
                 rating: 5
               },
               {
                 name: "Michael Zimba",
-                text: "Perfect for a weekend escape. The rooms are spacious, clean, and the food is incredible. Highly recommend!",
+                text: "Ordered a custom birthday cake for my daughter. The attention to detail was insane. Truly the best bakery in town.",
                 rating: 5
               },
               {
                 name: "Emily Nyirenda",
-                text: "We booked the Safari Suite for our anniversary. The sunset views from the balcony were out of this world.",
+                text: "I've tried many patisseries, but the balance of flavors here is unmatched. The blush-gold tart is a must-try!",
                 rating: 5
               }
             ].map((review, i) => (
@@ -270,15 +249,15 @@ const Home = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.2 }}
                 viewport={{ once: true }}
-                className="p-8 bg-white rounded-3xl shadow-sm border border-forest/10 relative"
+                className="p-8 bg-white rounded-3xl shadow-sm border border-gold/10 relative"
               >
                 <div className="flex gap-1 text-gold mb-4">
                   {[...Array(review.rating)].map((_, star) => <Star key={star} size={16} fill="currentColor" />)}
                 </div>
-                <p className="font-lato text-charcoal/80 italic mb-6 leading-relaxed">
+                <p className="font-lato text-chocolate/80 italic mb-6 leading-relaxed">
                   "{review.text}"
                 </p>
-                <div className="font-playfair font-bold text-forest">{review.name}</div>
+                <div className="font-playfair font-bold text-chocolate">{review.name}</div>
               </motion.div>
             ))}
           </div>
@@ -286,24 +265,23 @@ const Home = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 px-4 text-center bg-forest text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
+      <section className="py-24 px-4 text-center bg-gold text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="grid grid-cols-10 gap-4">
-            {[...Array(100)].map((_, i) => (
-              <TreePine key={i} size={20} className="text-white" />
-            ))}
+            {[...Array(100)].map((_, i) => <Sparkles key={i} size={20} className="text-white" />)}
           </div>
         </div>
         <div className="relative z-10 max-w-3xl mx-auto space-y-8">
           <h2 className="text-4xl md:text-6xl font-playfair font-bold leading-tight">
-            Ready to Escape <br /> to Serenity?
+            Ready to Make Your <br />
+            Celebration DEVINE?
           </h2>
           <p className="text-lg font-lato opacity-90">
-            Whether it's a romantic getaway, a family vacation, or a solo retreat —
-            your perfect stay awaits.
+            Whether it's a grand wedding or an intimate dinner, we're here to bring
+            the sweetness to your special moments.
           </p>
-          <Link to="/booking" className="bg-terracotta text-white px-10 py-4 rounded-full font-bold text-xl hover:bg-white hover:text-forest transition-all duration-300 shadow-xl inline-block">
-            Book Your Stay Now
+          <Link to="/order" className="bg-chocolate text-white px-10 py-4 rounded-full font-bold text-xl hover:bg-white hover:text-chocolate transition-all duration-300 shadow-xl inline-block">
+            Start Your Custom Order
           </Link>
         </div>
       </section>
